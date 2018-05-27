@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Home from "./team.stephen.sunshine/test/Home";
+import UserHeader from "./team.stephen.sunshine/user/UserHeader";
+import UserManagement from "./team.stephen.sunshine/user/UserManagement";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-            更新，可以大   的
-          To get started, edit <code>src/App.js</code> and save to reload.
+            <UserManagement/>
         </p>
       </div>
     );

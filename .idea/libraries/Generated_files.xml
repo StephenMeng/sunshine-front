@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/Button.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/ColumnPane.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/Index.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/Tab.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/user/UserHeader.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/user/cls/User.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/Button.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/ColumnPane.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/Index.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/Tab.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/user/UserHeader.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/user/cls/User.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
