@@ -2,6 +2,9 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/container/CounterContainer.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/router/Router.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/router/routerRouter.js" />
         <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/Button.js" />
         <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/ColumnPane.js" />
         <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/Index.js" />
@@ -11,6 +14,9 @@
       </sourceFilesUrls>
     </properties>
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/container/CounterContainer.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/router/Router.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/router/routerRouter.js" />
       <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/Button.js" />
       <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/ColumnPane.js" />
       <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/test/Index.js" />

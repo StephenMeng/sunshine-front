@@ -33,7 +33,7 @@ export default class User {
         this.staff=this.staff.filter(item=>{
             return item.info.userNo!=userNo
         })
-        // this.allStaff=this.staff;
+        this.allStaff=this.staff;
         return this
     }
     searchStaff(word){
