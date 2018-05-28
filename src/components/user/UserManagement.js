@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import UserHeader from "../component/UserHeader";
-import UserItemPanel from "../component/UserItemPanel";
-import UserFooter from "../component/UserFooter";
-import UserDetail from "../component/UserDetail";
+import UserHeader from "./UserHeader";
+import UserItemPanel from "./UserItemPanel";
+import UserFooter from "./UserFooter";
+import UserDetail from "./UserDetail";
 
 class UserManagement extends Component {
     render(){

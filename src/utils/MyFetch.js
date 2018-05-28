@@ -3,28 +3,18 @@ import { message } from 'antd';
 const API_URL ="http://localhost:8080"
 
 var MyFetch = {
-    get(path,fun) {
-        let url=API_URL+"/"+path;
-        $.ajax({
-            type:'get',
-            url:url,
-            async: false,
-            success:fun
-        })
-    }
-    /*
     get(path,params) {
         var url=API_URL+"/"+path;
-        // if (params) {
-        //     let paramsArray = [];
-        //     //拼接参数
-        //     Object.keys(params).forEach(key => paramsArray.push(key + '=' + params[key]))
-        //     if (url.search(/\?/) === -1) {
-        //         url += '?' + paramsArray.join('&')
-        //     } else {
-        //         url += '&' + paramsArray.join('&')
-        //     }
-        // }
+        if (params) {
+            let paramsArray = [];
+            //拼接参数
+            Object.keys(params).forEach(key => paramsArray.push(key + '=' + params[key]))
+            if (url.search(/\?/) === -1) {
+                url += '?' + paramsArray.join('&')
+            } else {
+                url += '&' + paramsArray.join('&')
+            }
+        }
 
         return new Promise((resolve, reject) => {
             console.log(url)
@@ -73,6 +63,5 @@ function handleStatus(res) {
             throw errors
         default:
     }
-    */
 }
 export default MyFetch;

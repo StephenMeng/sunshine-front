@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TabPane from "./TabPane";
-import Counter from "../component/Counter";
+import Counter from "../components/Counter";
 import connect from "react-redux/es/connect/connect";
 
 const INCREASE={type:"increase"}

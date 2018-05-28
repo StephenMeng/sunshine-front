@@ -1,26 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import UserManagement from "../user/UserManagement";
-import User from "../user/cls/User";
-import MyFetch from "../utils/MyFetch"
+import UserManagement from "../../components/user/UserManagement";
+import MyFetch from "../../utils/MyFetch";
 
 const DELETE=userNo=>({type:"deleteUser",users:deleteUser(userNo)})
-const QUERY=word=>({type:"queryUser",users:queryUser(word)})
-
-export const queryUser=(word)=>{
-    let a=[];
-    MyFetch.get("admin/user/list?pageNum=1&pageSize=5",function (value) {
-        console.log(value.data.list)
-        a=value.data.list;
-    });
-    return a;
-}
+const QUERY=data=>({type:"queryUser",users:data})
 export const deleteUser=(word)=>{
     console.log("delete ")
-    return User.rawData.filter(item=>{
-            return item.info.userNo!=word
-        });
-}
+};
 
 
 const mapStateToProps = state => ({
@@ -32,7 +19,14 @@ const mapDispatchToProps = dispatch => ({
         dispatch(DELETE(userNo))
     },
     handleQuery:(word)=>{
-        dispatch(QUERY(word))
+        let params={
+            pageNum:1,
+            pageSize:5
+        }
+        MyFetch.get("admin/user/list",params).then(value=>{
+            console.log(value.data.list);
+            dispatch(QUERY(value.data.list))
+        });
     },
 
 })

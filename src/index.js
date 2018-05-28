@@ -3,15 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import {
-    HashRouter,
-    Route,
-    Link,
-    Switch
-} from 'react-router-dom';
-import UserManagement from "./team.stephen.sunshine/user/UserManagement";
-import Counter from "./team.stephen.sunshine/component/Counter";
-import connect from "react-redux/es/connect/connect";
 import createStore from "redux/src/createStore";
 import Provider from "react-redux/src/components/Provider";
 
