@@ -1,34 +1,17 @@
 import React, {Component} from 'react';
-import UserHeader from "./UserHeader";
-import UserItemPanel from "./UserItemPanel";
-import UserFooter from "./UserFooter";
-import UserDetail from "./UserDetail";
-import User from "./cls/User";
-
+import UserHeader from "../component/UserHeader";
+import UserItemPanel from "../component/UserItemPanel";
+import UserFooter from "../component/UserFooter";
+import UserDetail from "../component/UserDetail";
 
 class UserManagement extends Component {
-    constructor(){
-        super();
-        this.state={
-            user:new User,
-        }
-    }
-    deleteStaff(userNo){
-        this.setState({
-            user:this.state.user.deleteStaff(userNo)
-        })
-    }
-    searchStaff(word) {
-        this.setState({
-            user: this.state.user.searchStaff(word)
-        });
-    }
     render(){
-        console.log(this.state.user)
+        const{users,handleDelete,handleQuery}=this.props
+        console.log(users)
         return(
             <div>
-                <UserHeader searchStaff={this.searchStaff.bind(this)}/>
-                <UserItemPanel users={this.state.user.staff} deleteStaff={this.deleteStaff.bind(this)}/>
+                <UserHeader searchStaff={handleQuery}/>
+                <UserItemPanel users={users} deleteStaff={handleDelete}/>
                 <UserFooter/>
                 <UserDetail/>
             </div>
@@ -36,5 +19,4 @@ class UserManagement extends Component {
     }
 
 }
-
 export default UserManagement;

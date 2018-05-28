@@ -18,11 +18,12 @@ import Provider from "react-redux/src/components/Provider";
 
 const INCREASE={type:"increase"}
 
-function  routerRouter(state={count:0},action){
-    const count=state.count;
+function  routerRouter(state={users:[]},action){
     switch (action.type){
-        case "increase":
-            return{count:count+1};
+        case "queryUser":
+            return{users:action.users};
+        case "deleteUser":
+            return  {users:action.users}
         default:
             return state;
     }
@@ -31,54 +32,44 @@ function  routerRouter(state={count:0},action){
 
 const store=createStore(routerRouter);
 
-function mapStateToProps(state) {
-    return{
-        value:state.count
-    }
-}
-function mapDispachToProps(dispach) {
-    return{
-        onIncreaseClick:()=>dispach(INCREASE)
-    }
-}
-
-const Container =connect(mapStateToProps,mapDispachToProps)(Counter);
-
-const About = () => (
-    <div>
-        <Container/>
-    </div>
-)
-
-const Home = () => (
-    <div>
-    <UserManagement/>
-    </div>
-)
-
-const Message = ({ match }) => (
-    <div>
-        <h3>new messages</h3>
-    </div>
-)
-
-const Inbox = ({ match }) => (
-    <div>
-        <h2>Topics</h2>
-        <Route path={`${match.url}/messages/:id`} component={Message}/>
-
-    </div>
-)
+// const About = () => (
+//     <div>
+//         <Container/>
+//     </div>
+// )
+//
+// const Home = () => (
+//     <div>
+//     <UserManagement/>
+//     </div>
+// )
+//
+// const Message = ({ match }) => (
+//     <div>
+//         <h3>new messages</h3>
+//     </div>
+// )
+//
+// const Inbox = ({ match }) => (
+//     <div>
+//         <h2>Topics</h2>
+//         <Route path={`${match.url}/messages/:id`} component={Message}/>
+//
+//     </div>
+// )
 ReactDOM.render(
     <Provider store={store}>
-        (<HashRouter>
-            <App>
-                <Route exact path="/" component={Home} />
-                <Route path="/about" component={About}                    >
-                </Route>
-                <Route path="/inbox" component={Inbox} />
-            </App>
-        </HashRouter>)
+        {/*<HashRouter/>*/}
+        <App/>
+        {/*<HashRouter/>*/}
+        {/*(<HashRouter>*/}
+            {/*<App>*/}
+                {/*<Route exact path="/" component={Home} />*/}
+                {/*<Route path="/about" component={About}                    >*/}
+                {/*</Route>*/}
+                {/*<Route path="/inbox" component={Inbox} />*/}
+            {/*</App>*/}
+        {/*</HashRouter>)*/}
     </Provider>,
         document.getElementById('root')
 )

@@ -40,6 +40,8 @@ export default class User {
         this.word = word;
         this.staff = this.allStaff;
         //在staff中搜索
+        console.log(this)
+
         this.staff = this.staff.filter(item => {
             return item.info.userName.includes(word)
         });

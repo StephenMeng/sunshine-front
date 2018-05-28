@@ -2,17 +2,15 @@ import React, {Component} from 'react';
 import UserItem from "./UserItem";
 
 class UserItemPanel extends Component {
-    deleteUser(userNo){
-        this.props.deleteStaff(userNo);
-    }
     render(){
-        let items=[];
-        if(this.props.users.length==0){
+        var items=[];
+        const{users,deleteStaff}=this.props;
+        if(!users){
             items.push(<tr><th colSpan="5">暂无用户</th></tr>);
         }else {
-            console.log(this.props.users)
-            this.props.users.forEach(user=>{
-                items.push(<UserItem key={user.id} user={user} deleteUser={this.deleteUser.bind(this)}/>)
+            console.log(users)
+           users.forEach(user=>{
+                items.push(<UserItem key={user.id} user={user} deleteUser={deleteStaff}/>)
             })
         }
         return(
