@@ -8,11 +8,12 @@ const DELETE=userNo=>({type:"deleteUser",users:deleteUser(userNo)})
 const QUERY=word=>({type:"queryUser",users:queryUser(word)})
 
 export const queryUser=(word)=>{
-    console.log(MyFetch.get("v2/book/search?q=python"));
-    console.log(word)
-    return  User.rawData.filter(item => {
-            return item.info.userName.includes(word)
+    let a=[];
+    MyFetch.get("admin/user/list?pageNum=1&pageSize=5",function (value) {
+        console.log(value.data.list)
+        a=value.data.list;
     });
+    return a;
 }
 export const deleteUser=(word)=>{
     console.log("delete ")
@@ -31,9 +32,9 @@ const mapDispatchToProps = dispatch => ({
         dispatch(DELETE(userNo))
     },
     handleQuery:(word)=>{
-        console.log("query")
         dispatch(QUERY(word))
     },
+
 })
 const UserManagementContainer=connect(mapStateToProps,mapDispatchToProps)(UserManagement);
 export default UserManagementContainer;

@@ -1,10 +1,20 @@
+import $ from 'jquery';
 import { message } from 'antd';
-const API_URL ="http://api.douban.com";
-    // "172.26.39.240:8888"
+const API_URL ="http://localhost:8080"
 
 var MyFetch = {
+    get(path,fun) {
+        let url=API_URL+"/"+path;
+        $.ajax({
+            type:'get',
+            url:url,
+            async: false,
+            success:fun
+        })
+    }
+    /*
     get(path,params) {
-        var url=API_URL+"/"+path+"?pageNum=1&pageSize=5";
+        var url=API_URL+"/"+path;
         // if (params) {
         //     let paramsArray = [];
         //     //拼接参数
@@ -20,11 +30,11 @@ var MyFetch = {
             console.log(url)
             fetch(url, {
                 method:"get",
-                headers: new Headers({
-                    'token': localStorage.getItem("my-custom-token"),
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                })
+                // headers: new Headers({
+                //     'token': localStorage.getItem("my-custom-token"),
+                //     'Accept': 'application/json',
+                //     'Content-Type': 'application/json',
+                // })
             }).then(res => {
                 return handleStatus(res);
             })
@@ -63,5 +73,6 @@ function handleStatus(res) {
             throw errors
         default:
     }
+    */
 }
 export default MyFetch;

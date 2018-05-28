@@ -7,6 +7,7 @@ import UserDetail from "../component/UserDetail";
 class UserManagement extends Component {
     render(){
         const{users,handleDelete,handleQuery}=this.props
+        console.log("users")
         console.log(users)
         return(
             <div>

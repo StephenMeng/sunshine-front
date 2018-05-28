@@ -6,11 +6,11 @@ class UserItemPanel extends Component {
         var items=[];
         const{users,deleteStaff}=this.props;
         if(!users){
-            items.push(<tr><th colSpan="5">暂无用户</th></tr>);
+            items.push(<tr key="0   "><th colSpan="5">暂无用户</th></tr>);
         }else {
             console.log(users)
            users.forEach(user=>{
-                items.push(<UserItem key={user.id} user={user} deleteUser={deleteStaff}/>)
+                items.push(<UserItem key={user.userNo} user={user} deleteUser={deleteStaff}/>)
             })
         }
         return(
