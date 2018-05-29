@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import {
+    HashRouter,
+    Route,
+    Link,
+    Switch
+} from 'react-router-dom';
+import UserManagement from "./components/user/UserManagement";
+import Counter from "./components/Counter";
+import connect from "react-redux/es/connect/connect";
 import createStore from "redux/src/createStore";
 import Provider from "react-redux/src/components/Provider";
 
-
-const INCREASE={type:"increase"}
 
 function  routerRouter(state={users:[]},action){
     switch (action.type){
