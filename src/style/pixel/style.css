@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /*@import 'https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900';*/
-@@import "./googleapis.css";
+@import "./googleapis.css";
 @import "spinners.css";
 
 .preloader {

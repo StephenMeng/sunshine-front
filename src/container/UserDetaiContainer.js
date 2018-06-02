@@ -28,10 +28,12 @@ const mapDispatchToProps = dispatch => ({
       dispatch(SHOW_USERS(res.data.list))
     })
   },
-  openAddView : (status) => {
-    console.log("openAdd view")
+  openAddView : () => {
 
-    dispatch(SHOW_USERS_ADD_MODAL(status))
+    dispatch(SHOW_USERS_ADD_MODAL(true))
+  },
+  closeAddView : () => {
+    dispatch(SHOW_USERS_ADD_MODAL(false))
   },
 })
 const UserDetailContainer=connect(mapStateToProps,mapDispatchToProps)(UserShow);

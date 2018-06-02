@@ -13,10 +13,12 @@ const reducer = (state = {}, action) => {
       };
     case SHOWUER:
       return{
+        ...state,
         users:action.users,
       };
     case ADD_USER_MODAL:
       return{
+        ...state,
         users_add_modal:action.users_add_modal
       };
     default:

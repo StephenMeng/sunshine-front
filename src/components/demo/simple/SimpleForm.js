@@ -6,7 +6,6 @@ const SimpleForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-group">
         <div className="input-group">
           <span className="input-group-addon">学号</span>
           <Field
@@ -17,8 +16,6 @@ const SimpleForm = props => {
             className="form-control"
           />
         </div>
-      </div>
-      <div className="form-group">
         <div className="input-group">
           <span className="input-group-addon">姓名</span>
           <Field
@@ -29,8 +26,6 @@ const SimpleForm = props => {
             className="form-control"
           />
         </div>
-      </div>
-      <div className="form-group">
         <div className="input-group">
           <span className="input-group-addon">Email</span>
           <Field
@@ -41,8 +36,6 @@ const SimpleForm = props => {
             className="form-control"
           />
         </div>
-      </div>
-      <div className="form-group">
         <div className="input-group">
           <span className="input-group-addon">职称</span>
           <Field
@@ -53,7 +46,6 @@ const SimpleForm = props => {
             className="form-control"
           />
         </div>
-      </div>
 
       <div className="m-t-15 form-group">
         <button type="submit" className="btn btn-success waves-effect waves-light m-r-10" disabled={pristine || submitting}>Submit</button>

@@ -125,5 +125,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "theme": {
+    "primary-color": "#FDA57A"
   }
 }
