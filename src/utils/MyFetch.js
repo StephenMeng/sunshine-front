@@ -1,11 +1,12 @@
-import $ from 'jquery';
-import { message } from 'antd';
-const API_URL ="http://localhost:8080"
+import {message} from 'antd';
+
+const API_URL ="http://172.26.39.240:8888";
 
 var MyFetch = {
     get(path,params) {
         var url=API_URL+"/"+path;
         if (params) {
+          console.log(params)
             let paramsArray = [];
             //拼接参数
             Object.keys(params).forEach(key => paramsArray.push(key + '=' + params[key]))
@@ -14,6 +15,9 @@ var MyFetch = {
             } else {
                 url += '&' + paramsArray.join('&')
             }
+          //   console.log("param")
+          // console.log(params)
+
         }
 
         return new Promise((resolve, reject) => {
@@ -36,7 +40,27 @@ var MyFetch = {
                 });
         });
     },
-}
+  post(path,params) {
+    let url=API_URL+"/"+path;
+    console.log(url)
+    console.log(params)
+    return new Promise((resolve, reject) => {
+      console.log(url)
+      fetch(url, {
+        method:"post",
+        body:params,
+      }).then(res => {
+        return handleStatus(res);
+      })
+        .then(json => {
+          resolve(json);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  },
+};
 
 function handleStatus(res) {
     let errors;

@@ -1,12 +1,5 @@
 <component name="libraryTable">
   <library name="Generated files" type="javaScript">
-    <properties>
-      <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/container/UserManagementContainer.js" />
-        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/user/cls/User.js" />
-        <item url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/utils/MyFetch.js" />
-      </sourceFilesUrls>
-    </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/container/UserManagementContainer.js" />
       <root url="file://$PROJECT_DIR$/dist/src/team.stephen.sunshine/user/cls/User.js" />
