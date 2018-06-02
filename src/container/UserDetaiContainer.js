@@ -28,6 +28,16 @@ const mapDispatchToProps = dispatch => ({
       dispatch(SHOW_USERS(res.data.list))
     })
   },
+  addUsers : (page) => {
+    const p={
+      pageNum:page,
+      pageSize:3
+    }
+    MyFetch.get("admin/user/list",p).then(function (res) {
+      console.log(res)
+      dispatch(SHOW_USERS(res.data.list))
+    })
+  },
   openAddView : () => {
 
     dispatch(SHOW_USERS_ADD_MODAL(true))

@@ -7,34 +7,7 @@ import Modal from "antd/es/modal/Modal";
 import SimpleForm from "../simple/SimpleForm";
 import List from "antd/es/list/index";
 import Avatar from "antd/es/avatar/index";
-const columns = [{
-  title: 'userName',
-  dataIndex: 'userName',
-  key: 'userName',
-  render: text => <a href="javascript:;">{text}</a>,
-}, {
-  title: 'userNo',
-  dataIndex: 'userNo',
-  key: 'userNo',
-}, {
-  title: 'title',
-  dataIndex: 'title',
-  key: 'title',
-}, {
-  title: 'Action',
-  key: 'action',
-  render: (text, record) => (
-    <span>
-      <a href="javascript:;" >Action 一 {record.name}</a>
-      <Divider type="vertical" />
-      <a href="javascript:;">Delete</a>
-      <Divider type="vertical" />
-      <a href="javascript:;" className="ant-dropdown-link">
-        More actions <Icon type="down" />
-      </a>
-    </span>
-  ),
-}];
+
 
 const IconText = ({ type, text }) => (
   <span>
@@ -48,9 +21,38 @@ class UserShow extends Component {
     this.props.onComponentDidMount();
   }
   addUsers(){
-    console.log("add User")
+    this.props.addUsers()
     this.props.closeAddView();
   }
+  columns = [{
+    title: 'userName',
+    dataIndex: 'userName',
+    key: 'userName',
+    render: text => <a href="javascript:;">{text}</a>,
+  }, {
+    title: 'userNo',
+    dataIndex: 'userNo',
+    key: 'userNo',
+  }, {
+    title: 'title',
+    dataIndex: 'title',
+    key: 'title',
+  }, {
+    title: 'Action',
+    key: 'action',
+    render: (text, record) => (
+      <span>
+      <a href="javascript:;" style={{hover:"block"}} onClick={this.props.openAddView}>Action 一 {record.name}</a>
+      <Divider type="vertical" />
+      <a href="javascript:;">Delete</a>
+      <Divider type="vertical" />
+      <a href="javascript:;" className="ant-dropdown-link">
+        More actions <Icon type="down" />
+      </a>
+    </span>
+    ),
+  }];
+
   render() {
     const { users,handleChangePage,openAddView,closeAddView,users_add_modal} = this.props;
     const page={
@@ -86,8 +88,15 @@ class UserShow extends Component {
             {/*</List.Item>*/}
           {/*)}*/}
         {/*/>*/}
-        <Table columns={columns} dataSource={
-          users} pagination={page} />
+        <Table bordered='true' columns={this.columns} dataSource={
+          users} pagination={page}
+               onRow={(record) => {
+                 return {
+                   onMouseEnter: () => {console.log(record.userNo)},  // 鼠标移入行
+                 };
+               }}
+
+        />
         <Modal
           title="Basic Modal"
           visible={users_add_modal}
