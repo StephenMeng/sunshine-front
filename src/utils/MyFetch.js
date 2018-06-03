@@ -1,6 +1,6 @@
 import {message} from 'antd';
 
-const API_URL ="http://172.26.39.240:8888";
+const API_URL ="http://localhost:8080";
 
 var MyFetch = {
     get(path,params) {
@@ -41,6 +41,9 @@ var MyFetch = {
         });
     },
   post(path,params) {
+    let formData = new FormData();
+    formData.append("userNo",params.userNo);
+    formData.append("userName",params.userName);
     let url=API_URL+"/"+path;
     console.log(url)
     console.log(params)
@@ -48,7 +51,13 @@ var MyFetch = {
       console.log(url)
       fetch(url, {
         method:"post",
-        body:params,
+        headers: {
+      //       // 'token': localStorage.getItem("my-custom-token"),
+      //       // 'Accept': '*/*',
+      //
+      'Content-Type': 'application/application/x-www-form-urlencoded',
+        },
+        body:formData,
       }).then(res => {
         return handleStatus(res);
       })

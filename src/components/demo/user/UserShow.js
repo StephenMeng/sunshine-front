@@ -9,21 +9,24 @@ import List from "antd/es/list/index";
 import Avatar from "antd/es/avatar/index";
 
 
-const IconText = ({ type, text }) => (
+const IconText = ({type, text}) => (
   <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
+    <Icon type={type} style={{marginRight: 8}}/>
     {text}
   </span>
 );
+
 class UserShow extends Component {
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.onComponentDidMount();
   }
-  addUsers(){
-    this.props.addUsers()
+
+  addUsers(data) {
     this.props.closeAddView();
+    this.props.addUsers(data)
   }
+
   columns = [{
     title: 'userName',
     dataIndex: 'userName',
@@ -42,82 +45,57 @@ class UserShow extends Component {
     key: 'action',
     render: (text, record) => (
       <span>
-      <a href="javascript:;" style={{hover:"block"}} onClick={this.props.openAddView}>Action 一 {record.name}</a>
-      <Divider type="vertical" />
+      <a href="javascript:;" style={{hover: "block"}} onClick={this.props.openAddView}>Action 一 {record.name}</a>
+      <Divider type="vertical"/>
       <a href="javascript:;">Delete</a>
-      <Divider type="vertical" />
+      <Divider type="vertical"/>
       <a href="javascript:;" className="ant-dropdown-link">
-        More actions <Icon type="down" />
+        More actions <Icon type="down"/>
       </a>
     </span>
     ),
   }];
 
   render() {
-    const { users,handleChangePage,openAddView,closeAddView,users_add_modal} = this.props;
-    const page={
-      onChange:handleChangePage,
-      defaultCurrent:1,
-      total:50
+    const {users, handleChangePage, openAddView, closeAddView, users_add_modal} = this.props;
+    const page = {
+      onChange: handleChangePage,
+      defaultCurrent: 1,
+      total: 50
     }
     console.log(users);
     return (
-      <div style={{float:"right"}}>
-        <Button type="primary" onClick={openAddView}>新增人员</Button>
-        {/*<List*/}
-          {/*itemLayout="vertical"*/}
-          {/*size="large"*/}
-          {/*pagination={{*/}
-            {/*onChange: handleChangePage,*/}
-            {/*pageSize: 3,*/}
-          {/*}}*/}
-          {/*dataSource={users}*/}
-          {/*footer={<div><b>ant design</b> footer part</div>}*/}
-          {/*renderItem={item => (*/}
-            {/*<List.Item*/}
-              {/*key={item.userNo}*/}
-              {/*actions={[<IconText type="star-o" text="156" />, <IconText type="like-o" text="156" />, <IconText type="message" text="2" />]}*/}
-              {/*extra={<img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}*/}
-            {/*>*/}
-              {/*<List.Item.Meta*/}
-                {/*avatar={<Avatar src={item.avatar} />}*/}
-                {/*title={<a href={item.href}>{item.userName}</a>}*/}
-                {/*description={item.userNo}*/}
-              {/*/>*/}
-              {/*{item.title}*/}
-            {/*</List.Item>*/}
-          {/*)}*/}
-        {/*/>*/}
-        <Table bordered='true' columns={this.columns} dataSource={
-          users} pagination={page}
-               onRow={(record) => {
-                 return {
-                   onMouseEnter: () => {console.log(record.userNo)},  // 鼠标移入行
-                 };
-               }}
+      <div id="page-wrapper">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-6 col-lg-6 col-sm-12">
+              <Button type="primary" onClick={openAddView}>新增人员</Button>
+              <Table bordered='true' columns={this.columns} dataSource={
+                users} pagination={page}
+                     onRow={(record) => {
+                       return {
+                         onMouseEnter: () => {
+                           console.log(record.userNo)
+                         },  // 鼠标移入行
+                       };
+                     }}
 
-        />
-        <Modal
-          title="Basic Modal"
-          visible={users_add_modal}
-          onOk={this.addUsers}
-          onCancel={closeAddView}
-          onSubmit={this.addUsers}
-        >
-          <div id="page-wrapper">
-            <div className="container-fluid">
-              <div className="row">
-                <div className="col-md-6 col-lg-6 col-sm-12">
-                  <div className="white-box">
-                    <SimpleForm />
-                  </div>
-                </div>
-              </div>
+              />
+              <Modal
+                title="Basic Modal"
+                visible={users_add_modal}
+                onOk={this.addUsers.bind(this)}
+                onCancel={closeAddView}
+                onSubmit={this.addUsers.bind(this)}
+              >
+                <SimpleForm onSubmit={this.addUsers.bind(this)}/>
+              </Modal>
             </div>
           </div>
-        </Modal>
+        </div>
       </div>
     )
   }
 }
+
 export default UserShow;
